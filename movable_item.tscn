@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dksxio8urut5u"]
+
+[ext_resource type="Script" uid="uid://dwj46mb44717s" path="res://movable_item.gd" id="1_0qro8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hk7fh"]
+size = Vector2(64, 64)
+
+[node name="moveable" type="ColorRect"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+color = Color(1, 0, 0, 1)
+script = ExtResource("1_0qro8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_hk7fh")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
