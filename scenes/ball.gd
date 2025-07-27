@@ -1,40 +1,33 @@
 extends CharacterBody2D
 
-var canclick : bool
+signal releaseBall
+const BOUNDS = Vector2(0, 1280)
+var release : bool
+@onready var animation = $"../AnimationPlayer"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass # Replace with function body.3
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not is_on_floor():
-		velocity += get_gravity() * delta 
-		
-	if Input.is_action_pressed("click") && canclick:
-		move()
-	if Input.is_action_just_released("click"):
-		velocity += get_global_mouse_position() * delta
-		
-	
-	var test = move_and_collide(velocity * delta)
-	if test:
-		velocity.bounce(test.get_normal())
-	
-	
-func move():
-	position = get_global_mouse_position()
+	if Input.is_action_just_pressed("click") && !release && animation.is_playing():
+		emit_signal("releaseBall")
+	if release:
+		animation.pause()
+		velocity += get_gravity() * delta
 
-func _input(event):
-	if event.is_pressed(): # Mouse click coordinates
-		velocity.x = event.position.x - global_position.x
-		velocity.y = event.position.y - global_position.y
-	
-func _on_area_2d_mouse_entered():
-	canclick = true
-	
+	move_and_slide()
+func _on_release_ball():
+	release = true
+
+func _on_node_2d_2_finished():
+	animation.play("ball")
 
 
+func _on_node_2d_cup_entered():
+	$"../Win_Lose".text = "You Win!"
+	$"../Exit".start()
 
-func _on_area_2d_mouse_exited():
-	canclick = false
+
+func _on_exit_timeout():
+	get_tree().change_scene_to_file("res://scenes/proto_room.tscn")

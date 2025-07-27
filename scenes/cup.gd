@@ -1,6 +1,6 @@
 extends Node2D
 
-signal finished
+signal cup_entered
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,9 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_animation_player_animation_finished(anim_name):
-	emit_signal("finished")
-
-
-func _on_finished():
-	pass # Replace with function body.
+func _on_area_2d_area_entered(area):
+	emit_signal("cup_entered")

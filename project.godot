@@ -27,6 +27,7 @@ directories/dch_directory={
 "ted test": "res://ted test.dch"
 }
 directories/dtl_directory={
+"scratch": "res://scratch.dtl",
 "test": "res://test.dtl"
 }
 layout/style_list=["res://test_style.tres"]

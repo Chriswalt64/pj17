@@ -1,16 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck10sfktjrj6q"]
+[gd_scene load_steps=9 format=3 uid="uid://ck10sfktjrj6q"]
 
+[ext_resource type="PackedScene" uid="uid://rrrfxo4t7g8g" path="res://scenes/cup.tscn" id="1_5420t"]
 [ext_resource type="PackedScene" uid="uid://3c4x50qy6ay0" path="res://scenes/ball.tscn" id="1_nth8n"]
+[ext_resource type="PackedScene" uid="uid://bky1kmfrdqcb1" path="res://scenes/countdown.tscn" id="2_ik6sa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxu3"]
-size = Vector2(1290, 20)
+size = Vector2(1544, 20)
+
+[sub_resource type="Animation" id="Animation_nth8n"]
+resource_name = "ball"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 128), Vector2(1280, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_5420t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1280, 128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ik6sa"]
+_data = {
+&"RESET": SubResource("Animation_5420t"),
+&"ball": SubResource("Animation_nth8n")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ik6sa"]
+font_size = 32
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Node2D2" parent="." instance=ExtResource("2_ik6sa")]
+position = Vector2(576, 168)
+
+[node name="Node2D" parent="." instance=ExtResource("1_5420t")]
+position = Vector2(616, 520)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(635, 592)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-19, 8)
 shape = SubResource("RectangleShape2D_ftxu3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -19,4 +68,23 @@ offset_right = 1280.0
 offset_bottom = 632.0
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_nth8n")]
-position = Vector2(448, 144)
+position = Vector2(1280, 128)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ik6sa")
+}
+
+[node name="Win_Lose" type="Label" parent="."]
+offset_left = 576.0
+offset_top = 88.0
+offset_right = 672.0
+offset_bottom = 111.0
+label_settings = SubResource("LabelSettings_ik6sa")
+
+[node name="Exit" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="finished" from="Node2D2" to="CharacterBody2D" method="_on_node_2d_2_finished"]
+[connection signal="cup_entered" from="Node2D" to="CharacterBody2D" method="_on_node_2d_cup_entered"]
+[connection signal="timeout" from="Exit" to="CharacterBody2D" method="_on_exit_timeout"]

@@ -1,7 +1,7 @@
 join "Valley Sally" right [animation="Slide In Left"]
 join MC left [animation="Slide In Right"]
-"Valley Sally": Like OH MY GOD, this party is so LAMEEEEE. 
+"Valley Sally": Like OH MY GOD, this party is so LAMEEEEE.
 MC: Well Sally, you're more than welcome to leave. I'd even venture to say you're encouraged to leave.
 "Valley Sally": I'm totally trying, but I cant find my keys. Help me find them so I can get outta here.
-MC: Alright, alright. I'll help you find your ke-
-join "ted test" center [animation="Bounce In" length="0.2" wait="true"]
+MC: Alright, alright. I'll help you find your keys.
+[voice volume="0.0"]

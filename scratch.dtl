@@ -1,0 +1,4 @@
+[background arg="res://assets/hitterisfull-1.jpg" fade="0.0"]
+join MC center [animation="Fade In" length="2.0" wait="true"]
+[voice path="res://assets/scratch.mp3" volume="0.0"]
+MC: Start digging in yo butt, twin.

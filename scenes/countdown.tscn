@@ -98,38 +98,10 @@ label_settings = SubResource("LabelSettings_jey4r")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-offset_right = 57.0
-offset_bottom = 137.0
-text = "3
-"
-label_settings = SubResource("LabelSettings_jey4r")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label3" type="Label" parent="."]
-visible = false
-offset_right = 57.0
-offset_bottom = 137.0
-text = "1"
-label_settings = SubResource("LabelSettings_jey4r")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="."]
-visible = false
-offset_right = 57.0
-offset_bottom = 137.0
-text = "Go!"
-label_settings = SubResource("LabelSettings_jey4r")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_scgq4")
 }
+autoplay = "countdown"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
