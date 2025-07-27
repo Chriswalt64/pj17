@@ -1,0 +1,137 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsdcrwf8dafny"]
+
+[ext_resource type="Script" uid="uid://0lp8xa6bcc3c" path="res://scripts/rhythm_game.gd" id="1_epuc0"]
+[ext_resource type="Texture2D" uid="uid://dfkpi40xbgpj4" path="res://assets/TargetCircle2.png" id="2_epuc0"]
+[ext_resource type="AudioStream" uid="uid://buetkicoumd1v" path="res://sounds/snd_step.wav" id="3_ay2m0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bul1y"]
+radius = 38.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b805"]
+radius = 5.09902
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbj7f"]
+font_size = 40
+font_color = Color(0.545098, 0.309804, 0.682353, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ay2m0"]
+radius = 5.09902
+
+[node name="RhythmGame" type="Node2D"]
+script = ExtResource("1_epuc0")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -3
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="TargetCircles" type="Node2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="TargetCircles"]
+texture = ExtResource("2_epuc0")
+
+[node name="Center" type="Node2D" parent="TargetCircles"]
+position = Vector2(0, -195)
+
+[node name="ColorRect" type="ColorRect" parent="TargetCircles/Center"]
+visible = false
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+pivot_offset = Vector2(50, 50)
+color = Color(1, 1, 1, 0.490196)
+
+[node name="Good" type="Area2D" parent="TargetCircles/Center"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetCircles/Center/Good"]
+shape = SubResource("CircleShape2D_bul1y")
+
+[node name="Perfect" type="Area2D" parent="TargetCircles/Center"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetCircles/Center/Perfect"]
+shape = SubResource("CircleShape2D_8b805")
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 332.0
+offset_right = 1255.0
+offset_bottom = 387.0
+label_settings = SubResource("LabelSettings_pbj7f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultLabelTimer" type="Timer" parent="ResultLabel"]
+wait_time = 0.5
+one_shot = true
+
+[node name="ResultLabelBackground" type="ColorRect" parent="ResultLabel"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_top = -22.0
+offset_right = 1233.0
+offset_bottom = 78.0
+
+[node name="AlphaMask" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(1, 1, 1, 0.784314)
+
+[node name="AudioController" type="Node2D" parent="."]
+
+[node name="BeatAudio" type="Area2D" parent="AudioController"]
+position = Vector2(640, 165)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AudioController/BeatAudio"]
+shape = SubResource("CircleShape2D_ay2m0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AudioController/BeatAudio"]
+position = Vector2(0, 120)
+shape = SubResource("CircleShape2D_ay2m0")
+
+[node name="Beat" type="AudioStreamPlayer" parent="AudioController/BeatAudio"]
+stream = ExtResource("3_ay2m0")
+
+[node name="TextSpawnPositions" type="Node2D" parent="."]
+
+[node name="1" type="Node2D" parent="TextSpawnPositions"]
+position = Vector2(543, 34)
+
+[node name="2" type="Node2D" parent="TextSpawnPositions"]
+position = Vector2(947, 113)
+
+[node name="3" type="Node2D" parent="TextSpawnPositions"]
+position = Vector2(991, 383)
+
+[node name="4" type="Node2D" parent="TextSpawnPositions"]
+position = Vector2(1089, 601)
+
+[node name="5" type="Node2D" parent="TextSpawnPositions"]
+position = Vector2(771, 659)
+
+[node name="6" type="Node2D" parent="TextSpawnPositions"]
+position = Vector2(480, 671)
+
+[node name="7" type="Node2D" parent="TextSpawnPositions"]
+position = Vector2(282, 508)
+
+[node name="8" type="Node2D" parent="TextSpawnPositions"]
+position = Vector2(169, 335)
+
+[node name="9" type="Node2D" parent="TextSpawnPositions"]
+position = Vector2(237, 161)
+
+[node name="GameCloseTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="area_entered" from="TargetCircles/Center/Good" to="." method="_on_good_area_entered"]
+[connection signal="area_exited" from="TargetCircles/Center/Good" to="." method="_on_good_area_exited"]
+[connection signal="area_entered" from="TargetCircles/Center/Perfect" to="." method="_on_perfect_area_entered"]
+[connection signal="area_exited" from="TargetCircles/Center/Perfect" to="." method="_on_perfect_area_exited"]
+[connection signal="timeout" from="ResultLabel/ResultLabelTimer" to="." method="_on_result_label_timer_timeout"]
+[connection signal="area_entered" from="AudioController/BeatAudio" to="." method="_on_beat_audio_area_entered"]
+[connection signal="timeout" from="GameCloseTimer" to="." method="_on_game_close_timer_timeout"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnc3qlgou0toe"]
+[gd_scene load_steps=5 format=3 uid="uid://dnc3qlgou0toe"]
 
 [ext_resource type="Texture2D" uid="uid://cbmik82v71nky" path="res://assets/proto_room.png" id="1_xypuo"]
 [ext_resource type="PackedScene" uid="uid://cm3on4tma6csd" path="res://scenes/player.tscn" id="2_v841k"]
 [ext_resource type="PackedScene" uid="uid://cc28005del801" path="res://scenes/Person.tscn" id="3_y77vw"]
+[ext_resource type="PackedScene" uid="uid://bonhkhd7l65ci" path="res://scenes/rhythm_game_person.tscn" id="4_v841k"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,5 +28,11 @@ offset_left = 1104.0
 offset_top = 208.0
 offset_right = 1232.0
 offset_bottom = 336.0
+
+[node name="RhythmGamePerson" parent="." instance=ExtResource("4_v841k")]
+offset_left = 114.0
+offset_top = 1218.0
+offset_right = 242.0
+offset_bottom = 1346.0
 
 [connection signal="minigameStart" from="ColorRect" to="CharacterBody2D" method="_on_color_rect_minigame_start"]
