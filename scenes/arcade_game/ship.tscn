@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://chtqbt4nefkth"]
+
+[ext_resource type="Script" uid="uid://dguhmib23nvc6" path="res://Scripts/arcade_game/ship.gd" id="1_pk6bb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ayl"]
+size = Vector2(20, 36)
+
+[node name="Ship" type="CharacterBody2D"]
+script = ExtResource("1_pk6bb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = -20.0
+offset_right = 12.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a1ayl")

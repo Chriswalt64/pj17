@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsdcrwf8dafny"]
 
-[ext_resource type="Script" uid="uid://0lp8xa6bcc3c" path="res://scripts/rhythm_game.gd" id="1_epuc0"]
+[ext_resource type="Script" uid="uid://0lp8xa6bcc3c" path="res://Scripts/rhythm_game.gd" id="1_epuc0"]
 [ext_resource type="Texture2D" uid="uid://dfkpi40xbgpj4" path="res://assets/TargetCircle2.png" id="2_epuc0"]
 [ext_resource type="AudioStream" uid="uid://buetkicoumd1v" path="res://sounds/snd_step.wav" id="3_ay2m0"]
 

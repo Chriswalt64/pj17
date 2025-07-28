@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bonhkhd7l65ci"]
 
-[ext_resource type="Script" uid="uid://i2snigc378vl" path="res://scripts/rhythm_game_person.gd" id="1_wsfgo"]
+[ext_resource type="Script" uid="uid://i2snigc378vl" path="res://Scripts/rhythm_game_person.gd" id="1_wsfgo"]
 [ext_resource type="Texture2D" uid="uid://oxrh7hqcrp66" path="res://assets/interact.png" id="2_2oxbv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ekhyx"]

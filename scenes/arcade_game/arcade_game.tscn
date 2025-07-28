@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0oi2kpdvf325"]
+
+[ext_resource type="Script" uid="uid://di0yyka34oshs" path="res://Scripts/arcade_game/arcade_game.gd" id="1_sfspv"]
+[ext_resource type="PackedScene" uid="uid://chtqbt4nefkth" path="res://scenes/arcade_game/ship.tscn" id="1_vwrm4"]
+[ext_resource type="PackedScene" uid="uid://cfu2uo5sh2hmd" path="res://scenes/arcade_game/enemy.tscn" id="3_rco1b"]
+
+[sub_resource type="Animation" id="Animation_sfspv"]
+resource_name = "enter_screen"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, -229), Vector2(640, 185)]
+}
+
+[sub_resource type="Animation" id="Animation_rco1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, -229)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfjtt"]
+_data = {
+&"RESET": SubResource("Animation_rco1b"),
+&"enter_screen": SubResource("Animation_sfspv")
+}
+
+[node name="ArcadeGame" type="Node2D"]
+script = ExtResource("1_sfspv")
+
+[node name="Ship" parent="." instance=ExtResource("1_vwrm4")]
+position = Vector2(640, 640)
+
+[node name="EnemyPhase1" type="Node2D" parent="."]
+position = Vector2(640, -229)
+
+[node name="Enemy" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
+position = Vector2(0, 150)
+
+[node name="Enemy2" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
+position = Vector2(-150, 75)
+
+[node name="Enemy3" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
+position = Vector2(-300, 0)
+
+[node name="Enemy7" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
+position = Vector2(-450, -75)
+
+[node name="Enemy4" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
+position = Vector2(150, 75)
+
+[node name="Enemy5" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
+position = Vector2(300, 0)
+
+[node name="Enemy6" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
+position = Vector2(450, -75)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyPhase1"]
+libraries = {
+&"": SubResource("AnimationLibrary_qfjtt")
+}
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 488.0
+offset_top = 36.0
+offset_right = 575.0
+offset_bottom = 59.0
+text = "SCORE: 000"
+
+[node name="HiLabel" type="Label" parent="."]
+offset_left = 707.0
+offset_top = 36.0
+offset_right = 760.0
+offset_bottom = 59.0
+text = "HI: 600"
+
+[node name="RespawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="EnemyPhase1/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
