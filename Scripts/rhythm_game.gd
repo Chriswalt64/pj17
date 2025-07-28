@@ -84,6 +84,7 @@ func check_progress():
 			newSize = 48
 			_display_result()
 			resultLabelTimer.stop()
+			Autoload.progress += 1
 		gameCloseTimer.start()
 
 
@@ -129,6 +130,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_game_close_timer_timeout() -> void:
+	Autoload.time += 1
 	get_tree().change_scene_to_file("res://scenes/proto_room.tscn")
-	#get_tree().quit()
 	pass

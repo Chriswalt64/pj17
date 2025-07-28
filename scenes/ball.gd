@@ -26,8 +26,10 @@ func _on_node_2d_2_finished():
 
 func _on_node_2d_cup_entered():
 	$"../Win_Lose".text = "You Win!"
+	Autoload.progress += 1
 	$"../Exit".start()
 
 
 func _on_exit_timeout():
+	Autoload.time += 1
 	get_tree().change_scene_to_file("res://scenes/proto_room.tscn")

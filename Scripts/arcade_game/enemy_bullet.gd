@@ -13,12 +13,15 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position.y += BULLET_SPEED * delta
+	if arcadeGame.lives == 0:
+		queue_free()
 	pass
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("_is_it") && body._is_it("Ship"):
 		body.queue_free()
-		arcadeGame.respawnTimer.start()
+		arcadeGame.lives -= 1
+		arcadeGame._check_lives()
 		queue_free()
 	pass

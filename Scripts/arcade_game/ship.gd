@@ -3,6 +3,7 @@ extends CharacterBody2D
 const MOVE_SPEED = 500
 
 @onready var bulletLoad: Resource = load("res://scenes/arcade_game/bullet.tscn")
+@onready var arcadeGame: Node = get_tree().get_root().get_node("ArcadeGame")
 
 
 func _ready() -> void:
@@ -28,6 +29,6 @@ func fire_bullet():
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("space"):
+	if event.is_action_pressed("space") && arcadeGame.phase != 0:
 		fire_bullet()
 	pass
