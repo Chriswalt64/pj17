@@ -1,21 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfu2uo5sh2hmd"]
+[gd_scene load_steps=4 format=3 uid="uid://cfu2uo5sh2hmd"]
 
 [ext_resource type="Script" uid="uid://brierjyk6ljv4" path="res://Scripts/arcade_game/enemy.gd" id="1_nwnov"]
+[ext_resource type="Texture2D" uid="uid://inbx3lj12jvw" path="res://assets/arcade_game/enemy.png" id="2_3jntf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkarr"]
-size = Vector2(56, 36)
+size = Vector2(56, 44)
 
 [node name="Enemy" type="Area2D"]
 script = ExtResource("1_nwnov")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -26.0
-offset_top = -20.0
-offset_right = 26.0
-offset_bottom = 20.0
-color = Color(0.751995, 0, 0.0713057, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3jntf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_jkarr")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

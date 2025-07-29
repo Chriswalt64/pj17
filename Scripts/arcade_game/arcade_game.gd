@@ -5,14 +5,16 @@ extends Node2D
 @onready var enemyPhase1Animation: Node = $EnemyPhase1/AnimationPlayer
 @onready var scoreLabel: Node = $ScoreLabel
 @onready var hiLabel: Node = $HiLabel
-@onready var gameOverLabel: Node = $GameOverLabel
+@onready var gameEndLabel: Node = $GameEndLabel
 @onready var respawnTimer: Node = $RespawnTimer
 @onready var gameCloseTimer: Node = $GameCloseTimer
+@onready var lifeDisplay: Node = $Lives
 
 var phase: int
 var enemyBulletSpawn: Vector2
 var score: int = 0
 var lives: int = 3
+var lostLife: int = 2
 
 func _ready() -> void:
 	phase = 0
@@ -28,8 +30,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _update_score():
 	scoreLabel.text = "SCORE: " + str(score)
-	if score == 700:
+	if score == 500:
 		hiLabel.text = "HI: " + str(score)
+		gameEndLabel.text = "YOU WIN"
+		gameEndLabel.visible = true
 		Autoload.progress += 1
 		gameCloseTimer.start()
 	pass
@@ -38,9 +42,12 @@ func _update_score():
 func _check_lives():
 	if lives > 0:
 		respawnTimer.start()
+		lifeDisplay.get_child(lostLife - 1).visible = false
+		lostLife -= 1
 	else:
 		gameCloseTimer.start()
-		gameOverLabel.visible = true
+		gameEndLabel.text = "GAME OVER"
+		gameEndLabel.visible = true
 		enemyPhase1.queue_free()
 	pass
 

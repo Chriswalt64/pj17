@@ -1,9 +1,73 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0oi2kpdvf325"]
+[gd_scene load_steps=14 format=3 uid="uid://d0oi2kpdvf325"]
 
 [ext_resource type="Script" uid="uid://di0yyka34oshs" path="res://Scripts/arcade_game/arcade_game.gd" id="1_sfspv"]
 [ext_resource type="PackedScene" uid="uid://chtqbt4nefkth" path="res://scenes/arcade_game/ship.tscn" id="1_vwrm4"]
+[ext_resource type="Texture2D" uid="uid://c1f1awftem1ww" path="res://assets/arcade_game/stars.png" id="2_qfjtt"]
 [ext_resource type="PackedScene" uid="uid://cfu2uo5sh2hmd" path="res://scenes/arcade_game/enemy.tscn" id="3_rco1b"]
 [ext_resource type="PackedScene" uid="uid://bky1kmfrdqcb1" path="res://scenes/countdown.tscn" id="4_rco1b"]
+[ext_resource type="Texture2D" uid="uid://bgf8v263kurev" path="res://assets/arcade_game/ship.png" id="6_ri2xw"]
+
+[sub_resource type="Animation" id="Animation_ri2xw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Stars:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(325, 325)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Stars2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(325, -325)]
+}
+
+[sub_resource type="Animation" id="Animation_qfjtt"]
+resource_name = "stars_move"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Stars:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 650)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Stars2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -650), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mpnk3"]
+_data = {
+&"RESET": SubResource("Animation_ri2xw"),
+&"stars_move": SubResource("Animation_qfjtt")
+}
 
 [sub_resource type="Animation" id="Animation_rco1b"]
 length = 0.001
@@ -48,6 +112,46 @@ font_size = 100
 [node name="ArcadeGame" type="Node2D"]
 script = ExtResource("1_sfspv")
 
+[node name="MachineCasingSides" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(325, 360)
+color = Color(0, 0.439707, 0.895306, 1)
+
+[node name="ScreenCenter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 680.0
+offset_bottom = 400.0
+
+[node name="Screen" type="ColorRect" parent="ScreenCenter"]
+layout_mode = 0
+offset_left = -325.0
+offset_top = -325.0
+offset_right = 325.0
+offset_bottom = 325.0
+pivot_offset = Vector2(325, 325)
+color = Color(0, 0, 0, 1)
+
+[node name="Stars" type="Sprite2D" parent="ScreenCenter"]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(325, 325)
+texture = ExtResource("2_qfjtt")
+
+[node name="Stars2" type="Sprite2D" parent="ScreenCenter"]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(325, -325)
+texture = ExtResource("2_qfjtt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenCenter"]
+root_node = NodePath("../Screen")
+libraries = {
+&"": SubResource("AnimationLibrary_mpnk3")
+}
+autoplay = "stars_move"
+
 [node name="Ship" parent="." instance=ExtResource("1_vwrm4")]
 position = Vector2(640, 640)
 
@@ -58,22 +162,16 @@ position = Vector2(640, -229)
 position = Vector2(0, 150)
 
 [node name="Enemy2" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
-position = Vector2(-150, 75)
+position = Vector2(-125, 75)
 
 [node name="Enemy3" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
-position = Vector2(-300, 0)
-
-[node name="Enemy7" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
-position = Vector2(-450, -75)
+position = Vector2(-250, 0)
 
 [node name="Enemy4" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
-position = Vector2(150, 75)
+position = Vector2(125, 75)
 
 [node name="Enemy5" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
-position = Vector2(300, 0)
-
-[node name="Enemy6" parent="EnemyPhase1" instance=ExtResource("3_rco1b")]
-position = Vector2(450, -75)
+position = Vector2(250, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyPhase1"]
 libraries = {
@@ -83,27 +181,41 @@ libraries = {
 [node name="Node2D" parent="." instance=ExtResource("4_rco1b")]
 position = Vector2(613, 270)
 
+[node name="MachineCasingTop" type="ColorRect" parent="."]
+offset_left = 315.0
+offset_right = 965.0
+offset_bottom = 35.0
+pivot_offset = Vector2(325, 360)
+color = Color(0, 0.439707, 0.895306, 1)
+
+[node name="MachineCasingBottom" type="ColorRect" parent="."]
+offset_left = 315.0
+offset_top = 685.0
+offset_right = 965.0
+offset_bottom = 720.0
+pivot_offset = Vector2(325, 360)
+color = Color(0, 0.439707, 0.895306, 1)
+
 [node name="ScoreLabel" type="Label" parent="."]
 offset_left = 488.0
-offset_top = 36.0
+offset_top = 46.0
 offset_right = 575.0
-offset_bottom = 59.0
+offset_bottom = 69.0
 text = "SCORE: 000"
 
 [node name="HiLabel" type="Label" parent="."]
 offset_left = 707.0
-offset_top = 36.0
+offset_top = 46.0
 offset_right = 760.0
-offset_bottom = 59.0
-text = "HI: 600"
+offset_bottom = 69.0
+text = "HI: 400"
 
-[node name="GameOverLabel" type="Label" parent="."]
+[node name="GameEndLabel" type="Label" parent="."]
 visible = false
 offset_left = 353.0
 offset_top = 269.0
 offset_right = 927.0
 offset_bottom = 406.0
-text = "GAME OVER"
 label_settings = SubResource("LabelSettings_rco1b")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -113,6 +225,23 @@ one_shot = true
 
 [node name="GameCloseTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="Lives" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 334.0
+offset_top = 58.0
+offset_right = 374.0
+offset_bottom = 98.0
+
+[node name="Life1" type="Sprite2D" parent="Lives"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_ri2xw")
+
+[node name="Life2" type="Sprite2D" parent="Lives"]
+position = Vector2(27, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_ri2xw")
 
 [connection signal="animation_finished" from="EnemyPhase1/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

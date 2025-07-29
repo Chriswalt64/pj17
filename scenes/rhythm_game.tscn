@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsdcrwf8dafny"]
+[gd_scene load_steps=9 format=3 uid="uid://dsdcrwf8dafny"]
 
 [ext_resource type="Script" uid="uid://0lp8xa6bcc3c" path="res://Scripts/rhythm_game.gd" id="1_epuc0"]
-[ext_resource type="Texture2D" uid="uid://dfkpi40xbgpj4" path="res://assets/TargetCircle2.png" id="2_epuc0"]
+[ext_resource type="Texture2D" uid="uid://fdo3q8tfqt7s" path="res://assets/rhythm_game/record_table.png" id="2_bul1y"]
 [ext_resource type="AudioStream" uid="uid://buetkicoumd1v" path="res://sounds/snd_step.wav" id="3_ay2m0"]
+[ext_resource type="Texture2D" uid="uid://cap12swk6datw" path="res://assets/rhythm_game/target_circle.png" id="3_bul1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bul1y"]
 radius = 38.0
@@ -20,19 +21,18 @@ radius = 5.09902
 [node name="RhythmGame" type="Node2D"]
 script = ExtResource("1_epuc0")
 
-[node name="Background" type="ColorRect" parent="."]
-z_index = -3
-offset_right = 1280.0
-offset_bottom = 720.0
+[node name="RecordTable" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_bul1y")
 
 [node name="TargetCircles" type="Node2D" parent="."]
 position = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="TargetCircles"]
-texture = ExtResource("2_epuc0")
+texture = ExtResource("3_bul1y")
 
 [node name="Center" type="Node2D" parent="TargetCircles"]
-position = Vector2(0, -195)
+position = Vector2(0, -165)
 
 [node name="ColorRect" type="ColorRect" parent="TargetCircles/Center"]
 visible = false
@@ -44,11 +44,13 @@ pivot_offset = Vector2(50, 50)
 color = Color(1, 1, 1, 0.490196)
 
 [node name="Good" type="Area2D" parent="TargetCircles/Center"]
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetCircles/Center/Good"]
 shape = SubResource("CircleShape2D_bul1y")
 
 [node name="Perfect" type="Area2D" parent="TargetCircles/Center"]
+position = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetCircles/Center/Perfect"]
 shape = SubResource("CircleShape2D_8b805")
@@ -74,12 +76,6 @@ offset_top = -22.0
 offset_right = 1233.0
 offset_bottom = 78.0
 
-[node name="AlphaMask" type="ColorRect" parent="."]
-z_index = -1
-offset_right = 1280.0
-offset_bottom = 720.0
-color = Color(1, 1, 1, 0.784314)
-
 [node name="AudioController" type="Node2D" parent="."]
 
 [node name="BeatAudio" type="Area2D" parent="AudioController"]
@@ -89,13 +85,14 @@ position = Vector2(640, 165)
 shape = SubResource("CircleShape2D_ay2m0")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AudioController/BeatAudio"]
-position = Vector2(0, 120)
+position = Vector2(0, 184)
 shape = SubResource("CircleShape2D_ay2m0")
 
 [node name="Beat" type="AudioStreamPlayer" parent="AudioController/BeatAudio"]
 stream = ExtResource("3_ay2m0")
 
 [node name="TextSpawnPositions" type="Node2D" parent="."]
+visible = false
 
 [node name="1" type="Node2D" parent="TextSpawnPositions"]
 position = Vector2(543, 34)

@@ -3,9 +3,9 @@ extends Node2D
 @onready var resultLabel: Node = $ResultLabel
 @onready var resultLabelTimer: Node = $ResultLabel/ResultLabelTimer
 @onready var gameCloseTimer: Node = $GameCloseTimer
-@onready var newNoteLoad: Resource = load("res://scenes/note.tscn")
+@onready var newNoteLoad: Resource = load("res://scenes/rhythm_game/new_note.tscn")
 
-var canBeat: bool
+var canBeat: bool = true
 var score: int = 0
 var scoreValue: int = 0
 var result: String
