@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0oi2kpdvf325"]
+[gd_scene load_steps=13 format=3 uid="uid://d0oi2kpdvf325"]
 
 [ext_resource type="Script" uid="uid://di0yyka34oshs" path="res://Scripts/arcade_game/arcade_game.gd" id="1_sfspv"]
 [ext_resource type="PackedScene" uid="uid://chtqbt4nefkth" path="res://scenes/arcade_game/ship.tscn" id="1_vwrm4"]
 [ext_resource type="Texture2D" uid="uid://c1f1awftem1ww" path="res://assets/arcade_game/stars.png" id="2_qfjtt"]
 [ext_resource type="PackedScene" uid="uid://cfu2uo5sh2hmd" path="res://scenes/arcade_game/enemy.tscn" id="3_rco1b"]
-[ext_resource type="PackedScene" uid="uid://bky1kmfrdqcb1" path="res://scenes/countdown.tscn" id="4_rco1b"]
 [ext_resource type="Texture2D" uid="uid://bgf8v263kurev" path="res://assets/arcade_game/ship.png" id="6_ri2xw"]
 
 [sub_resource type="Animation" id="Animation_ri2xw"]
@@ -150,7 +149,6 @@ root_node = NodePath("../Screen")
 libraries = {
 &"": SubResource("AnimationLibrary_mpnk3")
 }
-autoplay = "stars_move"
 
 [node name="Ship" parent="." instance=ExtResource("1_vwrm4")]
 position = Vector2(640, 640)
@@ -177,9 +175,6 @@ position = Vector2(250, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_qfjtt")
 }
-
-[node name="Node2D" parent="." instance=ExtResource("4_rco1b")]
-position = Vector2(613, 270)
 
 [node name="MachineCasingTop" type="ColorRect" parent="."]
 offset_left = 315.0

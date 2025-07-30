@@ -14,8 +14,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var moveDirection: Vector2 = Input.get_vector("left", "right", "up", "down")
-	velocity.x = moveDirection.x * MOVE_SPEED
-	position.x = clamp(position.x, screen.global_position.x + 24, screen.global_position.x + screen.size.x - 24)
+	if !arcadeGame.tutorial:
+		velocity.x = moveDirection.x * MOVE_SPEED
+		position.x = clamp(position.x, screen.global_position.x + 24, screen.global_position.x + screen.size.x - 24)
 	move_and_slide()
 	pass
 

@@ -1,0 +1,440 @@
+[gd_scene load_steps=20 format=3 uid="uid://dc1oq276ad1kb"]
+
+[ext_resource type="Script" uid="uid://bbgqm0ksg1bur" path="res://Scripts/arcade_game/arcade_tutorial.gd" id="1_sijwy"]
+[ext_resource type="Texture2D" uid="uid://bgf8v263kurev" path="res://assets/arcade_game/ship.png" id="2_nhv4q"]
+[ext_resource type="Texture2D" uid="uid://inbx3lj12jvw" path="res://assets/arcade_game/enemy.png" id="3_i17y2"]
+[ext_resource type="Texture2D" uid="uid://c2rcq8njlokgk" path="res://assets/small_key.png" id="4_6tn3b"]
+[ext_resource type="Texture2D" uid="uid://dl44k3sdnn5mk" path="res://assets/space_bar.png" id="5_muqca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyliw"]
+atlas = ExtResource("4_6tn3b")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlccs"]
+atlas = ExtResource("4_6tn3b")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2x5wc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyliw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlccs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hbq7r"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xup7"]
+atlas = ExtResource("4_6tn3b")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv35m"]
+atlas = ExtResource("4_6tn3b")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbt8t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xup7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv35m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4khr8"]
+atlas = ExtResource("5_muqca")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6x6l"]
+atlas = ExtResource("5_muqca")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77eu0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4khr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6x6l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6kkae"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_4f3yj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(147, 316)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/LeftKey:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/RightKey:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Bullet:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(144, 318)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/SpaceBar:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/EnemyBullet:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(144, 51)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/EnemyBullet:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Enemy:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Bullet:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_25k6r"]
+resource_name = "controls"
+length = 1.98334
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.15, 0.466667, 1.13333, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(147, 316), Vector2(72, 316), Vector2(222, 316), Vector2(147, 316)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/LeftKey:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.466667, 1.13333, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/RightKey:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1.13333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Bullet:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.15, 0.466667, 1.13333, 1.46667, 1.63333, 1.98334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(144, 316), Vector2(69, 316), Vector2(219, 316), Vector2(144, 316), Vector2(144, 316), Vector2(144, 66)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/SpaceBar:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.63333, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/EnemyBullet:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.13333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(144, 51), Vector2(144, 51), Vector2(144, 347)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/EnemyBullet:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Enemy:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.98333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Bullet:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.98333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4e2dt"]
+_data = {
+&"RESET": SubResource("Animation_4f3yj"),
+&"controls": SubResource("Animation_25k6r")
+}
+
+[node name="ArcadeTutorial" type="Node2D"]
+script = ExtResource("1_sijwy")
+
+[node name="Mask" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.843137)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 320.0
+offset_top = 180.0
+offset_right = 360.0
+offset_bottom = 220.0
+
+[node name="BackgroundBorder" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(320, 180)
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Bullet" type="ColorRect" parent="Control"]
+offset_left = 144.0
+offset_top = 316.0
+offset_right = 150.0
+offset_bottom = 329.0
+color = Color(0.772549, 0.772549, 0.772549, 1)
+
+[node name="EnemyBullet" type="ColorRect" parent="Control"]
+visible = false
+offset_left = 144.0
+offset_top = 51.0
+offset_right = 150.0
+offset_bottom = 64.0
+color = Color(0.784074, 0, 0.128657, 1)
+
+[node name="Ship" type="Sprite2D" parent="Control"]
+position = Vector2(147, 316)
+texture = ExtResource("2_nhv4q")
+
+[node name="Enemy" type="Sprite2D" parent="Control"]
+position = Vector2(147, 47)
+texture = ExtResource("3_i17y2")
+
+[node name="LeftKey" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(412, 160)
+sprite_frames = SubResource("SpriteFrames_2x5wc")
+
+[node name="LeftKeyLabel" type="Label" parent="Control/LeftKey"]
+offset_left = -20.0
+offset_top = -67.0
+offset_right = 20.0
+offset_bottom = -44.0
+text = "A / <-"
+label_settings = SubResource("LabelSettings_hbq7r")
+
+[node name="RightKey" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(504, 160)
+sprite_frames = SubResource("SpriteFrames_cbt8t")
+
+[node name="RightKeyLabel" type="Label" parent="Control/RightKey"]
+offset_left = -20.0
+offset_top = -67.0
+offset_right = 20.0
+offset_bottom = -44.0
+text = "D / ->"
+label_settings = SubResource("LabelSettings_hbq7r")
+
+[node name="SpaceBar" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(503, 230)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_77eu0")
+frame = 1
+
+[node name="TitleBackground" type="ColorRect" parent="Control"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="TitleLabel" type="Label" parent="Control/TitleBackground"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 150.0
+offset_right = 486.0
+offset_bottom = 199.0
+text = "Beat the Nerd
+Destroy all the ships to earn the high score."
+label_settings = SubResource("LabelSettings_6kkae")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnderstoodButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 323.0
+offset_right = 634.0
+offset_bottom = 354.0
+text = "Understood!"
+
+[node name="TitleCardTimer" type="Timer" parent="Control"]
+wait_time = 3.0
+one_shot = true
+
+[node name="TitleCardEndTimer" type="Timer" parent="Control"]
+one_shot = true
+
+[node name="NextAnimTimer" type="Timer" parent="Control"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_4e2dt")
+}
+
+[connection signal="button_up" from="Control/UnderstoodButton" to="." method="_on_understood_button_button_up"]
+[connection signal="timeout" from="Control/TitleCardTimer" to="." method="_on_title_card_timer_timeout"]
+[connection signal="timeout" from="Control/TitleCardEndTimer" to="." method="_on_title_card_end_timer_timeout"]
+[connection signal="timeout" from="Control/NextAnimTimer" to="." method="_on_next_anim_timer_timeout"]
+[connection signal="animation_finished" from="Control/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -4,6 +4,8 @@ extends Node2D
 @onready var resultLabelTimer: Node = $ResultLabel/ResultLabelTimer
 @onready var gameCloseTimer: Node = $GameCloseTimer
 @onready var newNoteLoad: Resource = load("res://scenes/rhythm_game/new_note.tscn")
+@onready var rhythmTutorialLoad: Resource = load("res://scenes/rhythm_game/rhythm_tutorial.tscn")
+@onready var countdownLoad: Resource = load("res://scenes/countdown.tscn")
 
 var canBeat: bool = true
 var score: int = 0
@@ -18,6 +20,22 @@ var gameDone: bool
 
 
 func _ready() -> void:
+	var rhythmTutorial: Node = rhythmTutorialLoad.instantiate()
+	get_tree().get_root().get_node("RhythmGame").add_child(rhythmTutorial)
+	pass
+
+
+func _start_game():
+	var countdown: Node = countdownLoad.instantiate()
+	get_tree().get_root().get_node("RhythmGame").add_child(countdown)
+	var childCount: int = get_tree().get_root().get_node("RhythmGame").get_child_count()
+	var countdownNode: Node = get_tree().get_root().get_node("RhythmGame").get_child(childCount - 1)
+	countdownNode.connect("finished", countdownFinished)
+	countdownNode.position = Vector2(1280/2 - 29, (720/2) - 72)
+	pass
+
+
+func countdownFinished():
 	var newNote: Node = newNoteLoad.instantiate()
 	get_tree().get_root().get_node("RhythmGame").add_child(newNote)
 	pass
@@ -69,12 +87,12 @@ func check_progress():
 			scoreValue = 0
 	_update_score()
 	print(score)
-	if progressCounter < 5:
+	if progressCounter < 10:
 		_display_result()
 		_spawn_note()
 	else:
 		$ResultLabel/ResultLabelBackground.visible = true
-		if score >= 5:
+		if score >= 10:
 			newText = "GREAT BEATS"
 			newSize = 48
 			_display_result()

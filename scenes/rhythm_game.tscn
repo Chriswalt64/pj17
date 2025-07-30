@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dsdcrwf8dafny"]
 
-[ext_resource type="Script" uid="uid://0lp8xa6bcc3c" path="res://Scripts/rhythm_game.gd" id="1_epuc0"]
+[ext_resource type="Script" uid="uid://0lp8xa6bcc3c" path="res://Scripts/rhythm_game/rhythm_game.gd" id="1_epuc0"]
 [ext_resource type="Texture2D" uid="uid://fdo3q8tfqt7s" path="res://assets/rhythm_game/record_table.png" id="2_bul1y"]
 [ext_resource type="AudioStream" uid="uid://buetkicoumd1v" path="res://sounds/snd_step.wav" id="3_ay2m0"]
 [ext_resource type="Texture2D" uid="uid://cap12swk6datw" path="res://assets/rhythm_game/target_circle.png" id="3_bul1y"]
@@ -13,7 +13,6 @@ radius = 5.09902
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbj7f"]
 font_size = 40
-font_color = Color(0.545098, 0.309804, 0.682353, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ay2m0"]
 radius = 5.09902
@@ -75,6 +74,7 @@ layout_mode = 0
 offset_top = -22.0
 offset_right = 1233.0
 offset_bottom = 78.0
+color = Color(0, 0, 0, 1)
 
 [node name="AudioController" type="Node2D" parent="."]
 
