@@ -1,0 +1,10 @@
+join MC left [animation="Slide In Left" length="0.7"]
+join "beer pong billy" right [animation="Slide In Right" length="0.7" z_index="1"]
+join guest rightmost [animation="Slide In Right"]
+MC: (Now aren’t these guys walking cliches.)
+"beer pong billy": Sick party, brah.
+MC: Yeah, I know. Looks like you guys are playing beer pong?
+guest: Yeah, brah. You wanna join in?
+MC: (These guys are already pretty drunk. If I win, they might be too drunk to function)\
+\
+Sure. I’ll play a game.

@@ -8,18 +8,18 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "Valley Sally",
+&"default_portrait": "New portrait",
 &"description": "",
-&"display_name": "Valley Sally",
+&"display_name": "beer pong billy",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"Valley Sally": {
+"New portrait": {
 "export_overrides": {
-"image": "\"res://assets/valley sally.png\""
+"image": "\"res://assets/Beer Pong Billy.png\""
 },
-"mirror": false,
+"mirror": true,
 "offset": Vector2(0, 0),
 "scale": 1.0,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"

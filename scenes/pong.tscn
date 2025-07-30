@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck10sfktjrj6q"]
+[gd_scene load_steps=10 format=3 uid="uid://ck10sfktjrj6q"]
 
 [ext_resource type="PackedScene" uid="uid://rrrfxo4t7g8g" path="res://scenes/cup.tscn" id="1_5420t"]
 [ext_resource type="PackedScene" uid="uid://3c4x50qy6ay0" path="res://scenes/ball.tscn" id="1_nth8n"]
@@ -7,6 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxu3"]
 size = Vector2(1544, 20)
 
+<<<<<<< Updated upstream
+=======
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik6sa"]
+size = Vector2(1550.5, 20)
+
+>>>>>>> Stashed changes
 [sub_resource type="Animation" id="Animation_5420t"]
 length = 0.001
 tracks/0/type = "value"
@@ -53,7 +59,7 @@ font_size = 32
 position = Vector2(576, 168)
 
 [node name="Node2D" parent="." instance=ExtResource("1_5420t")]
-position = Vector2(616, 520)
+position = Vector2(616, 512)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(635, 592)
@@ -61,6 +67,12 @@ position = Vector2(635, 592)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-19, 8)
 shape = SubResource("RectangleShape2D_ftxu3")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(-19, 8)
+shape = SubResource("RectangleShape2D_ik6sa")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_top = 592.0
@@ -87,4 +99,6 @@ wait_time = 3.0
 
 [connection signal="finished" from="Node2D2" to="CharacterBody2D" method="_on_node_2d_2_finished"]
 [connection signal="cup_entered" from="Node2D" to="CharacterBody2D" method="_on_node_2d_cup_entered"]
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="lose" from="CharacterBody2D" to="CharacterBody2D" method="_on_lose"]
 [connection signal="timeout" from="Exit" to="CharacterBody2D" method="_on_exit_timeout"]

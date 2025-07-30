@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var isScenePlaying : bool
+
 func _ready():
 	if Autoload.lastPosition != null && Autoload.lastPosition != Vector2(0,0):
 		position = Autoload.lastPosition
@@ -31,6 +33,7 @@ func _on_color_rect_minigame_start():
 		Autoload.lastPosition = position
 
 
+
 func check_time():
 	if Autoload.time == 10:
 		print("Morning Has Come!")
@@ -44,3 +47,10 @@ func check_time():
 		print("The Night Begins.")
 	else:
 		print("The Night Goes On.")
+
+func _on_pong_guys_minigame_start():
+	Autoload.lastPosition = position
+
+
+func _on_rhythm_game_person_minigame_start():
+	Autoload.lastPosition = position

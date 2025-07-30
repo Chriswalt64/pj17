@@ -1,0 +1,15 @@
+[background arg="res://assets/pexels-kelly-1179532-2606097.jpg" fade="0.5"]
+join MC center [animation="Fade In" length="2.0" wait="true"]
+MC: Alright, I’m home. I’m exhausted, can’t wait to get home and just crash.\
+\
+… huh, my lights are on, I must’ve forgotten to turn them off.
+[music path="res://assets/McCrunchy pixabay.mp3" fade="1.5" volume="0.0"]
+[wait time="1.0"]
+MC: Oh, and I hear music, I guess I left that on as well. Oh. and I see people too…Son of a bitch, there’s a party at my place right now.
+[background arg="res://assets/Photo by Max Vakhtbovycn.jpg" fade="1.5"]
+[wait time="1.0"]
+update MC right
+join guest left
+guest:  Dude, this is a sick ass party, man.
+MC:  It is?\
+(How did this even happen? I didn’t invite anyone to a party, especially at my place. I gotta get these people out of here, and fast.)
