@@ -25,9 +25,11 @@ Autoload="*res://Scripts/autoload.gd"
 directories/dch_directory={
 "MC": "res://MC.dch",
 "Valley Sally": "res://assets/Valley Sally.dch",
+"beer pong billy": "res://beer pong billy.dch",
 "ted test": "res://ted test.dch"
 }
 directories/dtl_directory={
+"Pong": "res://Pong.dtl",
 "scratch": "res://scratch.dtl",
 "test": "res://test.dtl"
 }
