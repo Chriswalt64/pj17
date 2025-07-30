@@ -23,13 +23,17 @@ Autoload="*res://Scripts/autoload.gd"
 [dialogic]
 
 directories/dch_directory={
+"Bel-air Brittany": "res://assets/Bel-air Brittany.dch",
 "MC": "res://MC.dch",
 "Valley Sally": "res://assets/Valley Sally.dch",
 "beer pong billy": "res://beer pong billy.dch",
+"guest": "res://assets/guest.dch",
 "ted test": "res://ted test.dch"
 }
 directories/dtl_directory={
+"Intro": "res://Intro.dtl",
 "Pong": "res://Pong.dtl",
+"keys": "res://assets/keys.dtl",
 "scratch": "res://scratch.dtl",
 "test": "res://test.dtl"
 }

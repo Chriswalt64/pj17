@@ -10,18 +10,18 @@
 },
 &"default_portrait": "New portrait",
 &"description": "",
-&"display_name": "beer pong billy",
+&"display_name": "Drunk Dude",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "New portrait": {
 "export_overrides": {
-"image": "\"res://assets/Beer Pong Billy.png\""
+"image": "\"res://assets/beligerent.png\""
 },
 "mirror": true,
 "offset": Vector2(0, 0),
-"scale": 1.0,
+"scale": 1,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 }
 },

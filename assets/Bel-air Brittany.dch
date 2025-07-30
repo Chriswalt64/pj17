@@ -8,20 +8,20 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "New portrait",
+&"default_portrait": "brittany",
 &"description": "",
-&"display_name": "beer pong billy",
+&"display_name": "Bel-air Brittany",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"New portrait": {
+"brittany": {
 "export_overrides": {
-"image": "\"res://assets/Beer Pong Billy.png\""
+"image": "\"res://assets/Bel-air Brittany.png\""
 },
-"mirror": true,
+"mirror": false,
 "offset": Vector2(0, 0),
-"scale": 1.0,
+"scale": 1,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 }
 },
