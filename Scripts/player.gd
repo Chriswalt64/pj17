@@ -33,7 +33,7 @@ func _on_color_rect_minigame_start():
 		Autoload.lastPosition = position
 
 
-<<<<<<< Updated upstream
+
 func check_time():
 	if Autoload.time == 10:
 		print("Morning Has Come!")
@@ -47,11 +47,10 @@ func check_time():
 		print("The Night Begins.")
 	else:
 		print("The Night Goes On.")
-=======
+
 func _on_pong_guys_minigame_start():
 	Autoload.lastPosition = position
 
 
 func _on_rhythm_game_person_minigame_start():
 	Autoload.lastPosition = position
->>>>>>> Stashed changes
