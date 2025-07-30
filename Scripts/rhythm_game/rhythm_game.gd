@@ -7,7 +7,7 @@ extends Node2D
 @onready var rhythmTutorialLoad: Resource = load("res://scenes/rhythm_game/rhythm_tutorial.tscn")
 @onready var countdownLoad: Resource = load("res://scenes/countdown.tscn")
 
-var canBeat: bool = true
+var canBeat: bool = false
 var score: int = 0
 var scoreValue: int = 0
 var result: String
@@ -38,6 +38,7 @@ func _start_game():
 func countdownFinished():
 	var newNote: Node = newNoteLoad.instantiate()
 	get_tree().get_root().get_node("RhythmGame").add_child(newNote)
+	canBeat = true
 	pass
 
 
@@ -93,12 +94,12 @@ func check_progress():
 	else:
 		$ResultLabel/ResultLabelBackground.visible = true
 		if score >= 10:
-			newText = "GREAT BEATS"
+			newText = "GREAT BEATS!"
 			newSize = 48
 			_display_result()
 			resultLabelTimer.stop()
 		else:
-			newText = "THAT FUCKING SUCKED ASS"
+			newText = "THAT WAS ROUGH..."
 			newSize = 48
 			_display_result()
 			resultLabelTimer.stop()
@@ -149,5 +150,5 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_game_close_timer_timeout() -> void:
 	Autoload.time += 1
-	get_tree().change_scene_to_file("res://scenes/proto_room.tscn")
+	get_tree().change_scene_to_file("res://scenes/house.tscn")
 	pass

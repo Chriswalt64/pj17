@@ -77,5 +77,5 @@ func _on_respawn_timer_timeout() -> void:
 
 func _on_game_close_timer_timeout() -> void:
 	Autoload.time += 1
-	get_tree().change_scene_to_file("res://scenes/proto_room.tscn")
+	get_tree().change_scene_to_file("res://scenes/house.tscn")
 	pass

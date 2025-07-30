@@ -1,21 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm3on4tma6csd"]
+[gd_scene load_steps=4 format=3 uid="uid://cm3on4tma6csd"]
 
 [ext_resource type="Script" uid="uid://bwcrg2d8mvfta" path="res://Scripts/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://m3v00gcoth4p" path="res://assets/heads/MC.png" id="2_g2els"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
-radius = 64.0
-height = 166.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
+radius = 47.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
-shape = SubResource("CapsuleShape2D_sh265")
+shape = SubResource("CircleShape2D_3vyb7")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -48.0
-offset_top = -56.0
-offset_right = 47.0
-offset_bottom = 64.0
-color = Color(1, 0.333333, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.45574
+texture = ExtResource("2_g2els")

@@ -1,0 +1,324 @@
+[gd_scene load_steps=27 format=3 uid="uid://cqxy5vtqf6btf"]
+
+[ext_resource type="Texture2D" uid="uid://dpuod200u3x5h" path="res://assets/house.png" id="1_3bgk5"]
+[ext_resource type="Script" uid="uid://bgrhn2pt44fxu" path="res://Scripts/house.gd" id="1_f74lx"]
+[ext_resource type="PackedScene" uid="uid://cm3on4tma6csd" path="res://scenes/player.tscn" id="2_f74lx"]
+[ext_resource type="Texture2D" uid="uid://cbmik82v71nky" path="res://assets/proto_room.png" id="2_ptc3g"]
+[ext_resource type="Texture2D" uid="uid://08aipymbjghf" path="res://assets/heads/robbie.png" id="3_ptc3g"]
+[ext_resource type="Texture2D" uid="uid://bv8asrcnqpdh4" path="res://assets/heads/jan.png" id="4_wcu0q"]
+[ext_resource type="Texture2D" uid="uid://c4igrrkg8lpfi" path="res://assets/heads/head1.png" id="5_bwc8c"]
+[ext_resource type="PackedScene" uid="uid://ctnai0rnexy4w" path="res://scenes/characters/item_find_person.tscn" id="7_wcu0q"]
+[ext_resource type="PackedScene" uid="uid://ckc2hsaanetop" path="res://scenes/characters/pong_person.tscn" id="8_bwc8c"]
+[ext_resource type="PackedScene" uid="uid://7ht3e1n1y2cr" path="res://scenes/characters/arcade_person.tscn" id="9_mhx8p"]
+[ext_resource type="PackedScene" uid="uid://n7vf6msdr3hp" path="res://scenes/characters/rhythm_person.tscn" id="11_65la3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65la3"]
+size = Vector2(10, 426)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcuhb"]
+size = Vector2(10, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7685u"]
+size = Vector2(467, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3853c"]
+size = Vector2(10, 426)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhgw4"]
+size = Vector2(164, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ewhn"]
+size = Vector2(168, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fn05"]
+size = Vector2(275, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82h1m"]
+size = Vector2(129.5, 329.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5ov4"]
+size = Vector2(579, 295)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep1bp"]
+size = Vector2(329, 232)
+
+[sub_resource type="LabelSettings" id="LabelSettings_65la3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57tf3"]
+size = Vector2(234, 59)
+
+[sub_resource type="Animation" id="Animation_wcu0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemFindPerson/Jan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemFindPerson:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(650, 461)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PongPerson:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(529, 1076)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArcadePerson:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2081, 434)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ArcadePerson/Robbie:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ptc3g"]
+resource_name = "house_idle"
+length = 4.0
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemFindPerson/Jan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.5708, 1.5708, 3.14159, 3.14159, 1.5708, 1.5708, 0.0, 0.0, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemFindPerson:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(650, 461), Vector2(650, 461), Vector2(650, 595), Vector2(650, 595), Vector2(650, 461)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PongPerson:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5, 2.25, 2.86667, 3.31667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(529, 1076), Vector2(529, 1076), Vector2(529, 990), Vector2(529, 990), Vector2(529, 1149), Vector2(529, 1149)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArcadePerson:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.75, 0.95, 1.13333, 2.2043, 2.9543, 3.1543, 3.33763),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2081, 434), Vector2(2081, 434), Vector2(2081, 415), Vector2(2081, 434), Vector2(2081, 434), Vector2(2081, 434), Vector2(2081, 415), Vector2(2081, 434)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ArcadePerson/Robbie:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.12916, 1.33446, 1.76128, 2.2043, 3.33346, 3.53876),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.366357, 0.458127, 0.0, 0.0, -0.366357]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bwc8c"]
+_data = {
+&"RESET": SubResource("Animation_wcu0q"),
+&"house_idle": SubResource("Animation_ptc3g")
+}
+
+[node name="House" type="Node2D"]
+script = ExtResource("1_f74lx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1280, 720)
+texture = ExtResource("2_ptc3g")
+
+[node name="BackgroundImage" type="Sprite2D" parent="."]
+position = Vector2(1280, 720)
+scale = Vector2(1.33333, 1.33333)
+texture = ExtResource("1_3bgk5")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Exterior" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(92, 51, 464, 51, 465, 282, 2426, 284, 2425, 1324, 90, 1326)
+
+[node name="Stairs" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(100, 1084, 324, 1085, 320, 1163, 721, 1315, 100, 1313)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1371, 491)
+shape = SubResource("RectangleShape2D_65la3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1582, 699)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_qcuhb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2199.5, 699)
+shape = SubResource("RectangleShape2D_7685u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1946, 1116)
+shape = SubResource("RectangleShape2D_3853c")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2023, 908)
+shape = SubResource("RectangleShape2D_bhgw4")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2350, 908)
+shape = SubResource("RectangleShape2D_3ewhn")
+
+[node name="Couch" type="CollisionShape2D" parent="Walls"]
+position = Vector2(845.5, 527)
+shape = SubResource("RectangleShape2D_0fn05")
+
+[node name="EntertainmentStand" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1301.75, 505.25)
+shape = SubResource("RectangleShape2D_82h1m")
+
+[node name="Table" type="CollisionShape2D" parent="Walls"]
+position = Vector2(875.5, 1083.5)
+shape = SubResource("RectangleShape2D_e5ov4")
+
+[node name="Island" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1551.5, 1016)
+shape = SubResource("RectangleShape2D_ep1bp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+build_mode = 1
+polygon = PackedVector2Array(1946, 921, 1946, 1324, 1374, 1325, 1375, 1206, 1829, 1204, 1830, 921)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.294118)
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Player" parent="." instance=ExtResource("2_f74lx")]
+position = Vector2(272, 139)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 2560
+limit_bottom = 1440
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="StairDialogue" type="Label" parent="Player"]
+visible = false
+offset_left = 69.0
+offset_top = -80.0
+offset_right = 282.0
+offset_bottom = -31.0
+text = "I can't go to bed yet, 
+there are still people here..."
+label_settings = SubResource("LabelSettings_65la3")
+
+[node name="ItemFindPerson" parent="." instance=ExtResource("7_wcu0q")]
+position = Vector2(650, 461)
+
+[node name="Jan" type="Sprite2D" parent="ItemFindPerson"]
+rotation = 1.5708
+texture = ExtResource("4_wcu0q")
+
+[node name="PongPerson" parent="." instance=ExtResource("8_bwc8c")]
+position = Vector2(529, 1076)
+
+[node name="Head" type="Sprite2D" parent="PongPerson"]
+rotation = 1.5708
+texture = ExtResource("5_bwc8c")
+
+[node name="ArcadePerson" parent="." instance=ExtResource("9_mhx8p")]
+position = Vector2(2081, 434)
+
+[node name="Robbie" type="Sprite2D" parent="ArcadePerson"]
+texture = ExtResource("3_ptc3g")
+
+[node name="RhythmPerson" parent="." instance=ExtResource("11_65la3")]
+position = Vector2(1081, 432)
+
+[node name="ColorRect" type="ColorRect" parent="RhythmPerson"]
+offset_left = -43.0
+offset_top = -44.0
+offset_right = 45.0
+offset_bottom = 44.0
+
+[node name="StairBase" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StairBase"]
+position = Vector2(207, 1055.5)
+shape = SubResource("RectangleShape2D_57tf3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bwc8c")
+}
+
+[connection signal="minigameStart" from="ItemFindPerson" to="Player" method="_on_item_find_person_minigame_start"]
+[connection signal="minigameStart" from="PongPerson" to="Player" method="_on_pong_person_minigame_start"]
+[connection signal="minigameStart" from="ArcadePerson" to="Player" method="_on_arcade_person_minigame_start"]
+[connection signal="minigameStart" from="RhythmPerson" to="Player" method="_on_rhythm_person_minigame_start"]
+[connection signal="body_entered" from="StairBase" to="Player" method="_on_stair_base_body_entered"]
+[connection signal="body_exited" from="StairBase" to="Player" method="_on_stair_base_body_exited"]

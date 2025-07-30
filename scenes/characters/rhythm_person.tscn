@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc28005del801"]
+[gd_scene load_steps=8 format=3 uid="uid://n7vf6msdr3hp"]
 
-[ext_resource type="Texture2D" uid="uid://oxrh7hqcrp66" path="res://assets/interact.png" id="1_0dfyj"]
-[ext_resource type="Script" uid="uid://bqjx3ve46sdjv" path="res://Scripts/person.gd" id="1_hopiu"]
+[ext_resource type="Script" uid="uid://7up31qwtcfbu" path="res://Scripts/characters/rhythm_person.gd" id="1_wxask"]
+[ext_resource type="Texture2D" uid="uid://bv8asrcnqpdh4" path="res://assets/heads/jan.png" id="2_f7rhv"]
+[ext_resource type="Texture2D" uid="uid://oxrh7hqcrp66" path="res://assets/interact.png" id="3_4o1k3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ekhyx"]
-radius = 96.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_djk5g"]
+radius = 95.0053
 
 [sub_resource type="Animation" id="Animation_hopiu"]
 length = 0.001
@@ -63,22 +64,21 @@ _data = {
 &"icon": SubResource("Animation_0dfyj")
 }
 
-[node name="ColorRect" type="ColorRect"]
-offset_right = 128.0
-offset_bottom = 128.0
-color = Color(0.219143, 0.580015, 0.7276, 1)
-script = ExtResource("1_hopiu")
+[node name="RhythmPerson" type="Area2D"]
+script = ExtResource("1_wxask")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_djk5g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(64, 64)
-shape = SubResource("CircleShape2D_ekhyx")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+rotation = 1.5708
+texture = ExtResource("2_f7rhv")
 
 [node name="Interact" type="Sprite2D" parent="."]
 position = Vector2(0, -70)
 scale = Vector2(0.398148, 0.398148)
-texture = ExtResource("1_0dfyj")
+texture = ExtResource("3_4o1k3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -86,5 +86,5 @@ libraries = {
 }
 autoplay = "icon"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 400.0
+
+@onready var stairDialogueLabel: Node = $StairDialogue
+@onready var sprite: Node = $Sprite2D
 
 var isScenePlaying : bool
 
@@ -11,27 +13,21 @@ func _ready():
 		position = Autoload.lastPosition
 	check_time()
 
+
 func _physics_process(delta):
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var hdirection = Input.get_axis("ui_left", "ui_right")
-	var vdirection = Input.get_axis("ui_up","ui_down")
-	if hdirection:
-		velocity.x = hdirection * SPEED
+	var moveDir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if moveDir:
+		velocity = moveDir * SPEED
+		sprite.rotation = moveDir.angle()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if vdirection:
-		velocity.y = vdirection * SPEED
-	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-
+	print(moveDir)
 	move_and_slide()
 
 
-func _on_color_rect_minigame_start():
-		Autoload.lastPosition = position
-
+func _it_is(what):
+	return "player" == what
 
 
 func check_time():
@@ -48,9 +44,28 @@ func check_time():
 	else:
 		print("The Night Goes On.")
 
-func _on_pong_guys_minigame_start():
+
+func _on_item_find_person_minigame_start() -> void:
 	Autoload.lastPosition = position
 
 
-func _on_rhythm_game_person_minigame_start():
+func _on_pong_person_minigame_start() -> void:
 	Autoload.lastPosition = position
+
+
+func _on_arcade_person_minigame_start() -> void:
+	Autoload.lastPosition = position
+
+
+func _on_rhythm_person_minigame_start() -> void:
+	Autoload.lastPosition = position
+
+
+func _on_stair_base_body_entered(body: Node2D) -> void:
+	if body.has_method("_it_is") && body._it_is("player"):
+		stairDialogueLabel.visible = true
+
+
+func _on_stair_base_body_exited(body: Node2D) -> void:
+	if body.has_method("_it_is") && body._it_is("player"):
+		stairDialogueLabel.visible = false
