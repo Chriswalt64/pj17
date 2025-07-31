@@ -32,6 +32,7 @@ func _on_node_2d_2_finished():
 func _on_node_2d_cup_entered():
 	$"../Win_Lose".text = "You Win!"
 	Autoload.progress += 1
+	Autoload.pongGameComplete = true
 	$"../Exit".start()
 
 

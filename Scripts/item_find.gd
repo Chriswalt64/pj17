@@ -20,6 +20,7 @@ func _on_area_2d_area_shape_exited(area_rid, area, area_shape_index, local_shape
 	$Timer.stop()
 	$win_lose.text = "You Win!"
 	Autoload.progress += 1
+	Autoload.itemGameComplete = true
 	$exit.start()
 
 

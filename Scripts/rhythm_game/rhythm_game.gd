@@ -66,12 +66,6 @@ func _on_good_area_exited(area: Area2D) -> void:
 	pass
 
 
-func _on_beat_audio_area_entered(area: Area2D) -> void:
-	if area.has_method("_is_it") && area._is_it("Note"):
-		$AudioController/BeatAudio/Beat.play()
-	pass
-
-
 func check_progress():
 	match result:
 		"Good":
@@ -104,6 +98,7 @@ func check_progress():
 			_display_result()
 			resultLabelTimer.stop()
 			Autoload.progress += 1
+			Autoload.rhythmGameComplete = true
 		gameCloseTimer.start()
 
 

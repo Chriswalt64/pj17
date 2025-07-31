@@ -52,6 +52,7 @@ func _update_score():
 		gameEndLabel.text = "YOU WIN"
 		gameEndLabel.visible = true
 		Autoload.progress += 1
+		Autoload.arcadeGameComplete = true
 		gameCloseTimer.start()
 	pass
 

@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsdcrwf8dafny"]
+[gd_scene load_steps=7 format=3 uid="uid://dsdcrwf8dafny"]
 
 [ext_resource type="Script" uid="uid://0lp8xa6bcc3c" path="res://Scripts/rhythm_game/rhythm_game.gd" id="1_epuc0"]
 [ext_resource type="Texture2D" uid="uid://fdo3q8tfqt7s" path="res://assets/rhythm_game/record_table.png" id="2_bul1y"]
-[ext_resource type="AudioStream" uid="uid://buetkicoumd1v" path="res://sounds/snd_step.wav" id="3_ay2m0"]
 [ext_resource type="Texture2D" uid="uid://cap12swk6datw" path="res://assets/rhythm_game/target_circle.png" id="3_bul1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bul1y"]
@@ -13,9 +12,6 @@ radius = 5.09902
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbj7f"]
 font_size = 40
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ay2m0"]
-radius = 5.09902
 
 [node name="RhythmGame" type="Node2D"]
 script = ExtResource("1_epuc0")
@@ -71,25 +67,11 @@ one_shot = true
 visible = false
 show_behind_parent = true
 layout_mode = 0
+offset_left = -39.0
 offset_top = -22.0
-offset_right = 1233.0
+offset_right = 1270.0
 offset_bottom = 78.0
 color = Color(0, 0, 0, 1)
-
-[node name="AudioController" type="Node2D" parent="."]
-
-[node name="BeatAudio" type="Area2D" parent="AudioController"]
-position = Vector2(640, 165)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AudioController/BeatAudio"]
-shape = SubResource("CircleShape2D_ay2m0")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AudioController/BeatAudio"]
-position = Vector2(0, 184)
-shape = SubResource("CircleShape2D_ay2m0")
-
-[node name="Beat" type="AudioStreamPlayer" parent="AudioController/BeatAudio"]
-stream = ExtResource("3_ay2m0")
 
 [node name="TextSpawnPositions" type="Node2D" parent="."]
 visible = false
@@ -130,5 +112,4 @@ one_shot = true
 [connection signal="area_entered" from="TargetCircles/Center/Perfect" to="." method="_on_perfect_area_entered"]
 [connection signal="area_exited" from="TargetCircles/Center/Perfect" to="." method="_on_perfect_area_exited"]
 [connection signal="timeout" from="ResultLabel/ResultLabelTimer" to="." method="_on_result_label_timer_timeout"]
-[connection signal="area_entered" from="AudioController/BeatAudio" to="." method="_on_beat_audio_area_entered"]
 [connection signal="timeout" from="GameCloseTimer" to="." method="_on_game_close_timer_timeout"]
