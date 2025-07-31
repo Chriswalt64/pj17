@@ -38,7 +38,7 @@ func _on_node_2d_cup_entered():
 
 func _on_exit_timeout():
 	Autoload.time += 1
-	get_tree().change_scene_to_file("res://scenes/proto_room.tscn")
+	get_tree().change_scene_to_file("res://scenes/house.tscn")
 
 
 func _on_lose():

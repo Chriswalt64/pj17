@@ -1,0 +1,7 @@
+join MC center [animation="Fade In" wait="true"]
+MC: FINALLY. Everyone is out of my house. I'm the ONLY ONE left. I can enjoy my solitude and relax.
+MC: Ahhhhhhhh.......
+MC: ......
+MC: I've gotta be honest, I'm kind of bored now. 
+MC: This is ironic.
+do Autoload.game_end()

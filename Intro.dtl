@@ -9,7 +9,8 @@ MC: Oh, and I hear music, I guess I left that on as well. Oh. and I see people t
 [background arg="res://assets/Photo by Max Vakhtbovycn.jpg" fade="1.5"]
 [wait time="1.0"]
 update MC right
-join guest left
-guest:  Dude, this is a sick ass party, man.
-MC:  It is?\
+join guest leftmost
+guest: Dude, this is a sick ass party, man.
+MC: It is?\
 (How did this even happen? I didn’t invite anyone to a party, especially at my place. I gotta get these people out of here, and fast.)
+do Autoload.game_start()

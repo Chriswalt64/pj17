@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("interact") && canStartGame:
 		Dialogic.timeline_ended.connect(_on_timeline_ended)
-		Dialogic.start('test')
+		Dialogic.start('DJ')
 		get_viewport().set_input_as_handled()
 
 

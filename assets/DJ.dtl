@@ -1,0 +1,17 @@
+join MC left [animation="Slide In Left"]
+join "DJ Danny" right [animation="Slide In Right"]
+"DJ Danny": Bumping party, dude.
+MC: So I've been told. You're the DJ ,then?
+"DJ Danny": Yeah, dude. You have a hell of set-up here, though, a great taste in music.
+MC: (I’m sorry, *MY* vinyls!? *MY* turntable?! I gotta get this guy outta here before my poor records turn to dust.)
+MC: Sure, man. Do you need anything? I mean, wouldn’t wanna leave the music unattended.
+"DJ Danny": Aw thanks, dude. Yeah, could you get me a beer?
+MC: …Sure.\
+(This guy looks pretty sober, it’ll probably take more than a beer to get this guy sloshed. There has to be a better way... )
+MC: (I've got it! let me slip a little of this laxative in here)
+MC: Hey, here’s that beer you asked for.
+"DJ Danny": Aw, thanks dude!
+Some time passes
+"DJ Danny": …augh, shit. I gotta go, I’ll be right back.
+leave "DJ Danny" [animation="Slide Out Right"]
+MC: Okay, the turntable is empty, if I can start making noise with it, those guys dancing would likely hate it. (This is gonna hurt me more than it’s gonna hurt you, vinyls)

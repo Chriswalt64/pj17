@@ -19,3 +19,9 @@ func _process(delta):
 	
 func set_last_position(position: Vector2):
 	lastPosition = position
+	
+func game_start():
+	get_tree().change_scene_to_file("res://scenes/house.tscn")
+	
+func game_end():
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")

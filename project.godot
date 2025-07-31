@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jam Entry"
-run/main_scene="uid://cqxy5vtqf6btf"
+run/main_scene="uid://dxkh08t4wsyp4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 
@@ -24,15 +24,22 @@ Autoload="*res://Scripts/autoload.gd"
 
 directories/dch_directory={
 "Bel-air Brittany": "res://assets/Bel-air Brittany.dch",
+"DJ Danny": "res://DJ Danny.dch",
 "MC": "res://MC.dch",
+"Nerd Nelson": "res://assets/Nerd Nelson.dch",
 "Valley Sally": "res://assets/Valley Sally.dch",
 "beer pong billy": "res://beer pong billy.dch",
+"dev": "res://assets/dev.dch",
 "guest": "res://assets/guest.dch",
 "ted test": "res://ted test.dch"
 }
 directories/dtl_directory={
+"DJ": "res://assets/DJ.dtl",
 "Intro": "res://Intro.dtl",
 "Pong": "res://Pong.dtl",
+"arcade": "res://assets/arcade.dtl",
+"dev": "res://assets/dev.dtl",
+"end": "res://assets/end.dtl",
 "keys": "res://assets/keys.dtl",
 "scratch": "res://scratch.dtl",
 "test": "res://test.dtl"
