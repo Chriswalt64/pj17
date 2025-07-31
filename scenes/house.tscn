@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cqxy5vtqf6btf"]
+[gd_scene load_steps=29 format=3 uid="uid://cqxy5vtqf6btf"]
 
 [ext_resource type="Texture2D" uid="uid://dpuod200u3x5h" path="res://assets/house.png" id="1_3bgk5"]
 [ext_resource type="Script" uid="uid://bgrhn2pt44fxu" path="res://Scripts/house.gd" id="1_f74lx"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://ckc2hsaanetop" path="res://scenes/characters/pong_person.tscn" id="8_bwc8c"]
 [ext_resource type="PackedScene" uid="uid://7ht3e1n1y2cr" path="res://scenes/characters/arcade_person.tscn" id="9_mhx8p"]
 [ext_resource type="PackedScene" uid="uid://n7vf6msdr3hp" path="res://scenes/characters/rhythm_person.tscn" id="11_65la3"]
+[ext_resource type="Texture2D" uid="uid://dylkdjgfhci2q" path="res://assets/heads/shady.png" id="12_qcuhb"]
+[ext_resource type="Texture2D" uid="uid://cm3ue3yyl4jy8" path="res://assets/heads/bis.png" id="13_7685u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65la3"]
 size = Vector2(10, 426)
@@ -109,6 +111,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RhythmPerson:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1081, 432)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dancers:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1118, 653)]
+}
 
 [sub_resource type="Animation" id="Animation_ptc3g"]
 resource_name = "house_idle"
@@ -174,6 +200,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, -0.366357, 0.458127, 0.0, 0.0, -0.366357]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RhythmPerson:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1097, 448), Vector2(1064, 396), Vector2(1097, 448), Vector2(1064, 396), Vector2(1097, 448), Vector2(1064, 396), Vector2(1097, 448), Vector2(1064, 396), Vector2(1097, 448)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dancers:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.49728, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1132, 652), Vector2(1101, 652), Vector2(1132, 652), Vector2(1101, 652), Vector2(1132, 652), Vector2(1101, 652), Vector2(1132, 652), Vector2(1101, 652), Vector2(1132, 652)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bwc8c"]
@@ -299,17 +349,30 @@ texture = ExtResource("3_ptc3g")
 [node name="RhythmPerson" parent="." instance=ExtResource("11_65la3")]
 position = Vector2(1081, 432)
 
-[node name="ColorRect" type="ColorRect" parent="RhythmPerson"]
-offset_left = -43.0
-offset_top = -44.0
-offset_right = 45.0
-offset_bottom = 44.0
+[node name="Shady" type="Sprite2D" parent="RhythmPerson"]
+rotation = -2.14345
+texture = ExtResource("12_qcuhb")
 
 [node name="StairBase" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StairBase"]
 position = Vector2(207, 1055.5)
 shape = SubResource("RectangleShape2D_57tf3")
+
+[node name="Dancers" type="Node2D" parent="."]
+position = Vector2(1118, 653)
+
+[node name="DancerHead" type="Sprite2D" parent="Dancers"]
+position = Vector2(52, -61)
+texture = ExtResource("13_7685u")
+
+[node name="DancerHead2" type="Sprite2D" parent="Dancers"]
+position = Vector2(-59, -18)
+texture = ExtResource("13_7685u")
+
+[node name="DancerHead3" type="Sprite2D" parent="Dancers"]
+position = Vector2(43, 65)
+texture = ExtResource("13_7685u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

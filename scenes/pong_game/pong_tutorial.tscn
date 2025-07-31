@@ -1,0 +1,392 @@
+[gd_scene load_steps=15 format=3 uid="uid://c3va0cb8e8bso"]
+
+[ext_resource type="Script" uid="uid://be4y387f65tw7" path="res://Scripts/rhythm_game/rhythm_tutorial.gd" id="1_5cwmt"]
+[ext_resource type="Texture2D" uid="uid://cap12swk6datw" path="res://assets/rhythm_game/target_circle.png" id="2_apscj"]
+[ext_resource type="Texture2D" uid="uid://cjyyhbl7aswem" path="res://assets/rhythm_game/player_circle.png" id="3_j1ve1"]
+[ext_resource type="Texture2D" uid="uid://dl44k3sdnn5mk" path="res://assets/space_bar.png" id="4_y3cds"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4khr8"]
+atlas = ExtResource("4_y3cds")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6x6l"]
+atlas = ExtResource("4_y3cds")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77eu0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4khr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6x6l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6a2rj"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6kkae"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_4f3yj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/PlayerCircle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/SpaceBar:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/PerfectLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/GoodLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/BadLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/TitleBackground:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4khr8"]
+resource_name = "bad_input"
+length = 0.800002
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/PlayerCircle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.106667, 0.106667)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/SpaceBar:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/BadLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.800002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/GoodLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4e2dt"]
+resource_name = "good_input"
+length = 0.533335
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/PlayerCircle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.983335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.235637, 0.235637), Vector2(0.018, 0.018)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/GoodLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/SpaceBar:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.533335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/PerfectLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6kkae"]
+resource_name = "perfect_input"
+length = 0.433335
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/PlayerCircle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433335, 0.983335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.284, 0.284), Vector2(0.018, 0.018)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/SpaceBar:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/PerfectLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.433335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/BadLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4e2dt"]
+_data = {
+&"RESET": SubResource("Animation_4f3yj"),
+&"bad_input": SubResource("Animation_4khr8"),
+&"good_input": SubResource("Animation_4e2dt"),
+&"perfect_input": SubResource("Animation_6kkae")
+}
+
+[node name="RhythmTutorial" type="Node2D"]
+script = ExtResource("1_5cwmt")
+
+[node name="Mask" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.843137)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 320.0
+offset_top = 180.0
+offset_right = 360.0
+offset_bottom = 220.0
+
+[node name="BackgroundBorder" type="ColorRect" parent="Control"]
+offset_right = 640.0
+offset_bottom = 360.0
+scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(320, 180)
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="ColorRect" parent="Control"]
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="TargetCircle" type="Sprite2D" parent="Control"]
+position = Vector2(181, 180)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_apscj")
+
+[node name="PlayerCircle" type="Sprite2D" parent="Control"]
+position = Vector2(181, 180)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_j1ve1")
+
+[node name="SpaceBar" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(503, 180)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_77eu0")
+
+[node name="PerfectLabel" type="Label" parent="Control"]
+visible = false
+offset_left = 304.0
+offset_top = 160.0
+offset_right = 373.0
+offset_bottom = 183.0
+text = "perfect..."
+label_settings = SubResource("LabelSettings_6a2rj")
+
+[node name="GoodLabel" type="Label" parent="Control"]
+visible = false
+offset_left = 304.0
+offset_top = 160.0
+offset_right = 373.0
+offset_bottom = 183.0
+text = "Good"
+label_settings = SubResource("LabelSettings_6a2rj")
+
+[node name="BadLabel" type="Label" parent="Control"]
+visible = false
+offset_left = 304.0
+offset_top = 160.0
+offset_right = 373.0
+offset_bottom = 183.0
+text = "BAD!!"
+label_settings = SubResource("LabelSettings_6a2rj")
+
+[node name="TitleBackground" type="ColorRect" parent="Control"]
+modulate = Color(1, 1, 1, 0.784314)
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="TitleLabel" type="Label" parent="Control/TitleBackground"]
+layout_mode = 0
+offset_left = 178.5
+offset_top = 150.0
+offset_right = 461.5
+offset_bottom = 199.0
+text = "Get Boo'd
+Miss the timing to mess up the song!"
+label_settings = SubResource("LabelSettings_6kkae")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnderstoodButton" type="Button" parent="Control"]
+offset_left = 529.0
+offset_top = 323.0
+offset_right = 634.0
+offset_bottom = 354.0
+text = "Understood!"
+
+[node name="TitleCardTimer" type="Timer" parent="Control"]
+wait_time = 3.0
+one_shot = true
+
+[node name="TitleCardEndTimer" type="Timer" parent="Control"]
+one_shot = true
+
+[node name="NextAnimTimer" type="Timer" parent="Control"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_4e2dt")
+}
+
+[connection signal="button_up" from="Control/UnderstoodButton" to="." method="_on_understood_button_button_up"]
+[connection signal="timeout" from="Control/TitleCardTimer" to="." method="_on_title_card_timer_timeout"]
+[connection signal="timeout" from="Control/TitleCardEndTimer" to="." method="_on_title_card_end_timer_timeout"]
+[connection signal="timeout" from="Control/NextAnimTimer" to="." method="_on_next_anim_timer_timeout"]
+[connection signal="animation_finished" from="Control/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

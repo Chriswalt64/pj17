@@ -339,6 +339,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 
 [node name="Bullet" type="ColorRect" parent="Control"]
+layout_mode = 0
 offset_left = 144.0
 offset_top = 316.0
 offset_right = 150.0
@@ -347,6 +348,7 @@ color = Color(0.772549, 0.772549, 0.772549, 1)
 
 [node name="EnemyBullet" type="ColorRect" parent="Control"]
 visible = false
+layout_mode = 0
 offset_left = 144.0
 offset_top = 51.0
 offset_right = 150.0
